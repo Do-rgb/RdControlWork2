@@ -20,7 +20,7 @@ namespace ControlWork.StrFinderConsole
 
             var _fileSearchers = new List<FileSearcher>();
 
-            var searcher = new Searcher(currentDirectory, userInput, UnityConfig.Container.Resolve<ILogger>());
+            var searcher = new DirectorySearcher(currentDirectory, userInput, UnityConfig.Container.Resolve<ILogger>());
 
             Console.WriteLine("Найденные файлы:");
             foreach (var item in searcher)

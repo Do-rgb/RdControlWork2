@@ -5,7 +5,7 @@ using System.IO;
 
 namespace ControlWork.StrFinderConsole
 {
-    internal class Searcher : IEnumerable<FileSearcher>
+    internal class DirectorySearcher : IEnumerable<FileSearcher>
     {
         private const string TXT_PATTERN = "*.txt";
 
@@ -13,7 +13,7 @@ namespace ControlWork.StrFinderConsole
         private readonly ILogger _logger;
         private readonly string _strToFind;
 
-        public Searcher(string dirPath, string strToFind, ILogger logger)
+        public DirectorySearcher(string dirPath, string strToFind, ILogger logger)
         {
             _dirPath = dirPath ?? throw new ArgumentNullException(nameof(dirPath));
             _strToFind = strToFind ?? throw new ArgumentNullException(nameof(strToFind));
