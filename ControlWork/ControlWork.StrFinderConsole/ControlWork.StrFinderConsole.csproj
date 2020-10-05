@@ -55,7 +55,8 @@
     <Compile Include="FileLogger.cs" />
     <Compile Include="FileReport.cs" />
     <Compile Include="ILogger.cs" />
-    <Compile Include="Report.cs" />
+    <Compile Include="ReportTask\Report.cs" />
+    <Compile Include="ReportTask\ReportExtension.cs" />
     <Compile Include="Searcher.cs" />
     <Compile Include="FileSearcher.cs" />
     <Compile Include="Program.cs" />

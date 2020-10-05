@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace ControlWork.StrFinderConsole
+namespace ControlWork.StrFinderConsole.ReportTask
 {
     [Serializable]
     public class Report
@@ -10,7 +10,7 @@ namespace ControlWork.StrFinderConsole
         public string StrToFind { get; set; }
         public FileSearcher[] Files { get; set; }
         public Report() { }
-        public Report(FileSearcher[] files,string strToFind)
+        public Report(FileSearcher[] files, string strToFind)
         {
             Files = files;
             StrToFind = strToFind;

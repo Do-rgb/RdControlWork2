@@ -26,7 +26,7 @@ namespace ControlWork.StrFinderConsole
             _logger.Write($"Начат поиск файлов в каталоге:{_dirPath}");
             _logger.Write($"Ключевое слово:{_strToFind}");
             var txtFiles = Directory.GetFiles(_dirPath, TXT_PATTERN, SearchOption.AllDirectories);
-            _logger.Write($"Найдено файлов:{txtFiles.Length}");
+            _logger.Write($"Найдено файлов txt:{txtFiles.Length}");
             
             foreach (var txtFile in txtFiles)
             {
