@@ -3,7 +3,7 @@ using System.IO;
 
 namespace ControlWork.StrFinderConsole
 {
-    public class FileLogger : ILogger,IDisposable
+    public class FileLogger : ILogger, IDisposable
     {
         private readonly StreamWriter _logFile;
 
@@ -16,15 +16,15 @@ namespace ControlWork.StrFinderConsole
             _logFile.WriteLine($"Запуск от {DateTime.Now}");
         }
 
-        public void Write(string message)
-        {
-            _logFile.WriteLine(message);
-        }
-        
         public void Dispose()
         {
             _logFile.Close();
             _logFile?.Dispose();
+        }
+
+        public void Write(string message)
+        {
+            _logFile.WriteLine(message);
         }
     }
 }

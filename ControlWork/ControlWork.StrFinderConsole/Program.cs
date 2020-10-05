@@ -1,34 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Xml;
-using System.Xml.Serialization;
-using Unity;
 using ControlWork.StrFinderConsole.ReportTask;
+using Unity;
 
 namespace ControlWork.StrFinderConsole
 {
-
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
-            string currentDirectory = Directory.GetCurrentDirectory();
-            
+            var currentDirectory = Directory.GetCurrentDirectory();
+
             Console.WriteLine("Введите строку для поиска:");
 
-            string userInput = Console.ReadLine();
-            
-            if (string.IsNullOrWhiteSpace(userInput))
-            {
-                Console.WriteLine("Неверная строка для поиска.");
-            }
-            
-            List<FileSearcher> _fileSearchers = new List<FileSearcher>();
-            
-            Searcher searcher = new Searcher(currentDirectory,userInput,UnityConfig.Container.Resolve<ILogger>());
+            var userInput = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(userInput)) Console.WriteLine("Неверная строка для поиска.");
+
+            var _fileSearchers = new List<FileSearcher>();
+
+            var searcher = new Searcher(currentDirectory, userInput, UnityConfig.Container.Resolve<ILogger>());
 
             Console.WriteLine("Найденные файлы:");
             foreach (var item in searcher)
@@ -36,13 +28,8 @@ namespace ControlWork.StrFinderConsole
                 _fileSearchers.Add(item);
                 Console.WriteLine(item.FileInfo.FullName);
             }
-            
-            Report report = new Report(_fileSearchers.ToArray(),userInput);
-            
-            foreach (var item in report.Files)
-            {
-                Console.WriteLine(item.FileInfo.FullName);
-            }
+
+            var report = new Report(_fileSearchers.ToArray(), userInput);
 
             report.ToXmlFile("report.xml");
 

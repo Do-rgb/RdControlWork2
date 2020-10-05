@@ -7,9 +7,9 @@ namespace ControlWork.StrFinderConsole.ReportTask
     {
         public static void ToXmlFile(this Report report, string fileName)
         {
-            XmlSerializer formatter = new XmlSerializer(typeof(Report));
+            var formatter = new XmlSerializer(typeof(Report));
 
-            using (FileStream fs = new FileStream("report.xml", FileMode.OpenOrCreate))
+            using (var fs = new FileStream("report.xml", FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, report);
             }
